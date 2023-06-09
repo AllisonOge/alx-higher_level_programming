@@ -7,14 +7,14 @@ if __name__ == "__main__":
     n_args = len(sys.argv) - 1
 
     if n_args != 3:
-        sys.stderr.write("Usage: ./100-my_calculator.py <a> <operator> <b>\n")
+        sys.stdout.write("Usage: ./100-my_calculator.py <a> <operator> <b>\n")
         exit(1)
 
     a = int(sys.argv[1])
     op = sys.argv[2]
     b = int(sys.argv[3])
     if op not in ["+", "-", "*", "/"]:
-        sys.stderr.write("Unknown operator. Available operators: +, -, * and /\n")
+        sys.stdout.write("Unknown operator. Available operators: +, -, * and /\n")
         exit(1)
 
     result = 0

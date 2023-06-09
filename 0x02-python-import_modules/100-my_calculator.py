@@ -14,7 +14,8 @@ if __name__ == "__main__":
     op = sys.argv[2]
     b = int(sys.argv[3])
     if op not in ["+", "-", "*", "/"]:
-        sys.stdout.write("Unknown operator. Available operators: +, -, * and /\n")
+        sys.stdout.write(
+                "Unknown operator. Available operators: +, -, * and /\n")
         exit(1)
 
     result = 0

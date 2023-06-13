@@ -15,19 +15,18 @@ int is_palindrome(listint_t **head)
 	/* populate the stack with the singly linked list */
 	while (slow != NULL)
 	{
-		stack[i] = slow->n;
+		stack[i++] = slow->n;
 		slow = slow->next;
 	}
+	i--; /*adjust index to point to the top of the stack */
 
 	/* iterate again over the list and check if palindrome */
 	while (*head != NULL)
 	{
-		if ((*head)->n != stack[i])
+		if ((*head)->n != stack[i--])
 			return (0);
 		/* increment node pointer*/
 		*head = (*head)->next;
-		/*decrement the stack index*/
-		i--;
 	}
 	return (1);
 }

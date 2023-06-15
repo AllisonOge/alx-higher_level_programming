@@ -21,7 +21,8 @@ def roman_to_int(roman_string):
         a substring present we take its value and check for the next,
         and next, and adds its value to the result
     """
-    roman = {'I':1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000,
+             'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900}
     i = 0
     num = 0
     while i < len(roman_string):
@@ -32,4 +33,3 @@ def roman_to_int(roman_string):
             num += roman[roman_string[i]]
             i += 1
     return num
-

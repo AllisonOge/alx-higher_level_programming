@@ -25,7 +25,9 @@ def roman_to_int(roman_string):
              'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900}
     i = 0
     num = 0
-    while i < len(roman_string):
+    while (roman_string is not None
+            and type(roman_string) is str
+            and i < len(roman_string)):
         if i + 1 < len(roman_string) and roman_string[i:i + 2] in roman:
             num += roman[roman_string[i:i + 2]]
             i += 2

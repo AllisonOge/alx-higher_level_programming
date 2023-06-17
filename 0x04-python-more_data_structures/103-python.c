@@ -16,7 +16,7 @@ void print_python_list(PyObject *p)
 
 	for (Py_ssize_t i = 0; i < size; i++)
 	{
-		PyObject *item = PyList_GetItemp(p, i);
+		PyObject *item = PyList_GetItem(p, i);
 		const char *typeName = Py_TYPE(item)->tp_name;
 
 		printf("Element %ld: %s\n", i, typeName);
@@ -29,7 +29,7 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	PyBytesObject *bytesObj;
+	PyBytesObject *byteObj;
 	Py_ssize_t size, i;
 	char *data;
 
@@ -54,7 +54,7 @@ void print_python_bytes(PyObject *p)
 	if (size > 10)
 		size = 10;
 	data = byteObj->ob_sval;
-	printf("  first %zd bytes:" size);
+	printf("  first %zd bytes:", size);
 	for (i = 0; i < size; ++i)
 		printf("  %02x", (unsigned char)data[i]);
 	printf("\n");

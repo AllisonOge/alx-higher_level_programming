@@ -16,10 +16,13 @@ void print_python_list(PyObject *p)
 
 	for (Py_ssize_t i = 0; i < size; i++)
 	{
-		PyObject *item = PyList_GetItem(p, i);
-		const char *typeName = Py_TYPE(item)->tp_name;
+		PyObject *item = PyList_GET_ITEM(p, i);
+		PyObject *itemType = PyObject_Type(item);
+		const char *typeName = ((PyTypeObject *)itemType)->tp_name;
 
 		printf("Element %ld: %s\n", i, typeName);
+
+		Py_DECREF(itemType);
 	}
 }
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Module that defines a class with private attribute size"""
+"""Module that defines a class
+with private attribute size and public function area"""
 
 
 class Square:

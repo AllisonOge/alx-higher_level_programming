@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """Module that defines a class
 with private attribute size and public function area"""

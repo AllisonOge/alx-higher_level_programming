@@ -17,6 +17,10 @@ class Square:
         self.size = size
         self.position = position
 
+    def __str__(self):
+        """Print to stdout when object is called"""
+        self.my_print()
+
     @property
     def size(self):
         """accessor for attrubute size

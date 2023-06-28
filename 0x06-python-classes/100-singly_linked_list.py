@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Module for handling a singly linked list"""
+
 
 class Node:
     """This class is a node."""
@@ -57,6 +58,7 @@ class Node:
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
+
 
 class SinglyLinkedList:
     """This class is a Singly Linked List."""

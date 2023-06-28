@@ -7,16 +7,12 @@ public function area and accessors"""
 
 class Square:
     """This class is a square."""
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialize a Square object.
 
         Args:
             size (integer): the length of the square's sides
             position (tuple): coordinates of the square object
-
-        Raises:
-            TypeError: if size is not an integer
-            ValueError: if size is less than 0
         """
         self.size = size
         self.position = position

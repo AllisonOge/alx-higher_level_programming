@@ -83,8 +83,10 @@ class Square:
         size is not zero otherwize an
         empty line
         """
-        if self.__size == 0:
+        for _ in range(self.position[1]):
+            print()
+        if self.size == 0:
             print()
         else:
-            for _ in range(self.__size):
-                print("{}{}".format(' '*self.__position[0], '#'*self.__size))
+            for _ in range(self.size):
+                print("{}{}".format(' '*self.position[0], '#'*self.size))

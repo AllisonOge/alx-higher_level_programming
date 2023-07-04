@@ -6,6 +6,8 @@ class Rectangle:
     """This class represent a rectangle."""
     def __str__(self):
         """customize print for instance of class"""
+        if self.width == 0 or self.height == 0:
+            return ""
         return self.disp()
 
     def __init__(self, width=0, height=0):
@@ -93,9 +95,3 @@ class Rectangle:
             s += "{}\n".format("#" * self.width)
 
         return s
-
-    def print(self):
-        """prints the class object in style
-        """
-        print(self.disp())
-

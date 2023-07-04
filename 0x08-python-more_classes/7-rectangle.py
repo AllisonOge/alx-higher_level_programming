@@ -97,7 +97,7 @@ class Rectangle:
         s = ""
         for _ in range(self.height - 1):
             s += "{}\n".format(
-                        Rectangle.print_symbol * self.width)
+                        self.print_symbol * self.width)
         s += "{}".format("#" * self.width)
         return s
 

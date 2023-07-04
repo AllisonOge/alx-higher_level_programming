@@ -98,7 +98,7 @@ class Rectangle:
         for _ in range(self.height - 1):
             s += "{}\n".format(
                        Rectangle.print_symbol * self.width)
-        s += "{}".format("#" * self.width)
+        s += "{}".format(Rectangle.print_symbol * self.width)
         return s
 
     def __repr__(self):

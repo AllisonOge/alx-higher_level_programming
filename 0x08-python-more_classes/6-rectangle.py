@@ -3,8 +3,8 @@
 
 
 class Rectangle:
-    number_of_instances = 0
     """This class represent a rectangle."""
+    number_of_instances = 0
     def __str__(self):
         """customize print for instance of class"""
         if self.width == 0 or self.height == 0:

@@ -1,0 +1,11 @@
+>>> add_integer = __import__("0-add_integer").add_integer
+>>> print(add_integer(1, 2))
+3
+>>> add_integer(2.5, 7)
+9
+>>> try:
+...     add_integer(None)
+... except Exception:
+...     print("An error occured!")
+... 
+An error occured!

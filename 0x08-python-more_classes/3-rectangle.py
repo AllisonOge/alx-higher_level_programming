@@ -91,7 +91,7 @@ class Rectangle:
         Returns: formatted string
         """
         s = ""
-        for _ in range(self.height):
+        for _ in range(self.height - 1):
             s += "{}\n".format("#" * self.width)
-
+        s += "{}".format("#" * self.width)
         return s

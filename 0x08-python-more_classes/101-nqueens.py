@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """N Queen puzzle program"""
-
 import sys
+
 
 def solve_n_queens(n):
     """initial board and solve N-Queen puzzle
@@ -61,6 +61,7 @@ def solve_n_queens(n):
     # Print all solutions
     for solution in solutions:
         print(solution)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

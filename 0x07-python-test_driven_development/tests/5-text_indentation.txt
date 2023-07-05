@@ -1,0 +1,24 @@
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+>>> text_indentation("                     ")
+>>> text_indentation("                               Hello, I have an interactive testing suite.                      ")
+Hello, I have an interactive testing suite.
+<BLANKLINE>
+>>> text_indentation("Hi, what happens when there is no period ending a sentence? Let's find out                ")
+Hi, what happens when there is no period ending a sentence?
+<BLANKLINE>
+Let's find out                
+>>> text_indentation("           I was going mountain climbing one morning, on a beautiful Saturday. I wore a sporting wear, surprisingly pitch black with leather linings in almost hidden areas. Had I the best set of gadgets and suits for such an extreme sport, one might wonder?  But my mind was not set on the uniform but the activity.")
+I was going mountain climbing one morning, on a beautiful Saturday.
+<BLANKLINE>
+I wore a sporting wear, surprisingly pitch black with leather linings in almost hidden areas.
+<BLANKLINE>
+Had I the best set of gadgets and suits for such an extreme sport, one might wonder?
+<BLANKLINE>
+But my mind was not set on the uniform but the activity.
+<BLANKLINE>
+>>> try:
+...     text_indentation(None)
+... except Exception:
+...     print("An error occured!")
+... 
+An error occured!

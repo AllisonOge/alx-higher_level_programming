@@ -1,0 +1,11 @@
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+>>> say_my_name("Allison", "Ogechukwu")
+My name is Allison Ogechukwu
+>>> say_my_name("Godwin")
+My name is Godwin 
+>>> try:
+...     say_my_name(25)
+... except Exception:
+...     print("An error occured!")
+... 
+An error occured!

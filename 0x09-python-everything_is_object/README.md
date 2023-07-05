@@ -1,6 +1,6 @@
-python everything is object readme
+### python everything is object readme
 
-Answers to the following questions
+Answers the following questions
 - What is the function to get the type of an object? (Ans: `0-answer.txt`)
 - What is the function to get the unique variable identifier-the memory address in a the CPython implementation? (Ans: `1-answer.txt`)
 - Do the variables `a` and `b` in the following code point to the same object? (Ans: `2-answer.txt`)
@@ -164,4 +164,23 @@ a is b
 139926795932424
 >>> a += [4]
 >>> id(a)
+```
+- How many int objects are created by the execution of the first line of the following script? (Ans: `103-line1.txt`) And how many int objects are created by the execution of the second line of the following script? (Ans: `103-line2.txt`)
+```python
+a = 1
+b = 1
+```
+- How many int objects are created by the execution of the first line of the following script? (Ans: `104-line1.txt`) And how many int objects are created by the execution of the second line of the following script? (Ans: `104-line2.txt`) And is the int object pointed by `a` deleted in the following script? (Ans: `104-line3.txt`) And is the int object pointed by `b` deleted in the following script? (Ans: `104-line4.txt`) And how many object are created by the execution of the last line of the following script? (Ans: `104-line5.txt`)
+```python
+a = 1024
+b = 1024
+del a
+del b
+c = 1024
+```
+- How many int objects are created before the execution of the line 2 of the following script and are still in memory? (Ans: `105-line1.txt`) Why? (Ans: [pending blog post]())
+```python
+print("I")
+print("Love")
+print("Python")
 ```

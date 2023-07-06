@@ -184,3 +184,11 @@ print("I")
 print("Love")
 print("Python")
 ```
+- How many string objects are created by the execution of the first line of the following script? (Ans: `106-line1.txt`) And how many string objects are created by the execution of the second line of the following script? (Ans: `106-line2.txt`) And is the string object pointed by `a` deleted in the following script after the execution of line 3? (Ans: `106-line3.txt`) And is the string object pointed by `b` deleted in the following script after the execution of line 4? (Ans: `106-line4.txt`) And how many string objects are created by the execution of the last line of the following script? (Ans: `106-line5.txt`)
+```python
+a = "SCHL"
+b = "SCHL"
+del a
+del b
+c = "SCHL"
+```

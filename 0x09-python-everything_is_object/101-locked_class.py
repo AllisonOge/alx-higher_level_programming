@@ -7,5 +7,4 @@ class LockedClass:
     of objects with attribute first_name
     """
 
-
     __slots__ = ["first_name"]

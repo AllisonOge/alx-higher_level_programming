@@ -3,9 +3,15 @@
 My name is Allison Ogechukwu
 >>> say_my_name("Godwin")
 My name is Godwin 
->>> try:
-...     say_my_name(25)
-... except Exception:
-...     print("An error occured!")
-... 
-An error occured!
+>>> say_my_name(234)
+Traceback (most recent call last):
+        ...
+TypeError: first_name must be a string
+>>> say_my_name('Allison', 345)
+Traceback (most recent call last):
+        ...
+TypeError: last_name must be a string
+>>> say_my_name()
+Traceback (most recent call last):
+        ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'

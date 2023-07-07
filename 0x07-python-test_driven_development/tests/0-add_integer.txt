@@ -3,9 +3,15 @@
 3
 >>> add_integer(2.5, 7)
 9
->>> try:
-...     add_integer(None)
-... except Exception:
-...     print("An error occured!")
-... 
-An error occured!
+>>> add_integer(None)
+Traceback (most recent call last):
+        ...
+TypeError: a must be an integer
+>>> add_integer("string", 1)
+Traceback (most recent call last):
+        ...
+TypeError: a must be an integer
+>>> add_integer(float('inf'), 1)
+Traceback (most recent call last):
+        ...
+OverflowError: cannot convert float infinity to integer

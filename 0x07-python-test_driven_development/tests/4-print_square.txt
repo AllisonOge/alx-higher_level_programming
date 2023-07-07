@@ -4,9 +4,15 @@
 >>> print_square(2)
 ##
 ##
->>> try:
-...     print_square(None)
-... except Exception:
-...     print("An error occured!")
-... 
-An error occured!
+>>> print_square(None)
+Traceback (most recent call last):
+        ...
+TypeError: size must be an integer
+>>> print_square('not integer')
+Traceback (most recent call last):
+        ...
+TypeError: size must be an integer
+>>> print_square(-234)
+Traceback (most recent call last):
+        ...
+ValueError: size must be >= 0

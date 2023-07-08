@@ -28,3 +28,6 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_ordered_distinct_float(self):
         self.assertEqual(max_integer([1.0, 2.0, 3.0, 4.0]), 4.0)
+
+    def test_max_in_the_middle(self):
+        self.assertEqual(max_integer([1.0, float('inf'), 23]), float('inf'))

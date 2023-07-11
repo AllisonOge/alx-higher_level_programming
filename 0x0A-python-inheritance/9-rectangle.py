@@ -22,9 +22,6 @@ class Rectangle(BaseGeometry):
         return self.__width * self.__height
 
     def __str__(self):
+        """Returns the custom formatted string for class instance"""
         return "[{}] {:d}/{:d}".format(type(self).__name__, self.__width,
                                        self.__height)
-
-    def print(self):
-        print("[{}] {:d}/{:d}".format(type(self).__name__, self.__width,
-                                      self.__height))

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-module to create a base class
+module to create a subclass of base class
 """
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """This is a subclass fo the base geometry"""
+    """This is a subclass of the base geometry"""
     def __init__(self, width, height):
         """Constructor function"""
         super().__init__()
@@ -23,8 +23,8 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         return "[{}] {:d}/{:d}".format(type(self).__name__, self.__width,
-                self.__height)
+                                       self.__height)
 
     def print(self):
         print("[{}] {:d}/{:d}".format(type(self).__name__, self.__width,
-                self.__height))
+                                      self.__height))

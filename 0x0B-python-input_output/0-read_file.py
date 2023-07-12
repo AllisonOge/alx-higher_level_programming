@@ -12,4 +12,4 @@ def read_file(filename=""):
         filename (string): absolute or relative path to file
     """
     with open(filename, encoding="utf-8") as f:
-        print(f.read())
+        print(f.read(), end="")

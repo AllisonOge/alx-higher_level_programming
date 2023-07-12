@@ -20,6 +20,6 @@ def append_after(filename="", search_string="", new_string=""):
         for line in lines:
             f.write(line)
             if search_string in line:
-                print("match found")
                 f.write(new_string)
         f.truncate()
+

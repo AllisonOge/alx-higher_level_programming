@@ -12,5 +12,7 @@ def load_from_json_file(filename):
     Args:
         filename (string): filename or path to file (absolute or relative)
     """
+    data = None
     with open(filename, encoding="utf-8") as f:
-        json.load(f)
+        data = json.load(f)
+    return data

@@ -15,6 +15,8 @@ def parse_log(size, codes):
     """
     print("File size: {:d}".format(size))
     for key in sorted(codes):
+        if codes[key] == 0:
+            continue
         print("{}: {}".format(key, codes[key]))
 
 

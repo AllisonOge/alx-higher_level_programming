@@ -30,6 +30,14 @@ ValueError: zero must be greater than 0
 Traceback (most recent call last):
                 ...
 TypeError: list must be an integer
+>>> bg.integer_validator("tuple", ())
+Traceback (most recent call last):
+                ...
+TypeError: tuple must be an integer
+>>> bg.integer_validator("dict", {})
+Traceback (most recent call last):
+                ...
+TypeError: dict must be an integer
 >>> bg.integer_validator()
 Traceback (most recent call last):
                 ...

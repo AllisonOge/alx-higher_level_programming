@@ -39,3 +39,30 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 2)
         self.assertEqual(r.x, 0)
         self.assertEqual(r.y, 2)
+
+    def test_instance_raise_typeerror(self):
+        """test the instance raises TypeError with float types"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(13.0, 3)
+        with self.assertRaises(TypeError):
+            r = Rectangle(13, 3.0)
+        with self.assertRaises(TypeError):
+            r = Rectangle(13, 3, x=0.0)
+        with self.assertRaises(TypeError):
+            r = Rectangle(13, 3, y=0.0)
+
+    def test_instance_raises_valueerror(self):
+        """test the instance raises ValueError with zero (except x and y) and
+        negative values"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(0, 3)
+        with self.assertRaises(ValueError):
+            r = Rectangle(-13, 3)
+        with self.assertRaises(ValueError):
+            r = Rectangle(13, 0)
+        with self.assertRaises(ValueError):
+            r = Rectangle(13, -3)
+        with self.assertRaises(ValueError):
+            r = Rectangle(13, 3, x=-1)
+        with self.assertRaises(ValueError):
+            r = Rectangle(13, 3, y=-3)

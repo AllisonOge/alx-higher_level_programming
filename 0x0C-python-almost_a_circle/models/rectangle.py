@@ -5,7 +5,6 @@ module for rectangle class
 from .base import Base
 
 
-
 class Rectangle(Base):
     """This the rectangle class"""
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -38,7 +37,7 @@ class Rectangle(Base):
 
         Args:
             value (int): value of the width
- 
+
         Raises:
             TypeError: if value is not an integer
             ValueError: if the value is <= 0
@@ -63,7 +62,7 @@ class Rectangle(Base):
 
         Args:
             value (int): value of the height property
- 
+
         Raises:
             TypeError: if value is not an integer
             ValueError: if the value is <= 0
@@ -88,7 +87,7 @@ class Rectangle(Base):
 
         Args:
             value (int): value of the x property
-  
+
         Raises:
             TypeError: if value is not an integer
             ValueError: if the value is <= 0
@@ -113,7 +112,7 @@ class Rectangle(Base):
 
         Args:
             value (int): value of the y property
-   
+
         Raises:
             TypeError: if value is not an integer
             ValueError: if the value is < 0

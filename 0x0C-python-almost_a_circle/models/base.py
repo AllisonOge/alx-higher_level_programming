@@ -7,6 +7,7 @@ module for the base class
 class Base:
     """The is the base class. It manages the id attribute for all classes"""
     __nb_objects = 0  # private static variable to track number of instances
+
     def __init__(self, id=None):
         """
         Initialize the class instance

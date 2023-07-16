@@ -7,7 +7,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 
 
-class RectangleTest(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
     """Test suite for the rectangle class"""
     def setUp(self):
         """set up before each test case"""
@@ -33,9 +33,9 @@ class RectangleTest(unittest.TestCase):
 
     def test_instance_with_x_y(self):
         """test the instance with x and y properties"""
-        r = Rectangle(5, 2, 0, -2)
+        r = Rectangle(5, 2, 0, 2)
         self.assertEqual(r.id, 1)
         self.assertEqual(r.width, 5)
         self.assertEqual(r.height, 2)
         self.assertEqual(r.x, 0)
-        self.assertEqual(r.y, -2)
+        self.assertEqual(r.y, 2)

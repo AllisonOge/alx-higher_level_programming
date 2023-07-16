@@ -6,7 +6,7 @@ import unittest
 from models.base import Base
 
 
-class BaseTest(unittest.TestCase):
+class TestBase(unittest.TestCase):
     """Test suite for the base class"""
     def setUp(self):
         """set up before each test case"""

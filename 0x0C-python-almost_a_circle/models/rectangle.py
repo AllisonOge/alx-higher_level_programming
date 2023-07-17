@@ -137,3 +137,12 @@ class Rectangle(Base):
             s += "{}\n".format("#" * self.width)
         s += "{}".format("#" * self.width)
         print(s)
+
+
+    def __str__(self):
+        """customize print for instance of class
+
+        Returns: formatted text
+        """
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+               self.id,  self.x, self.y, self.width, self.height)

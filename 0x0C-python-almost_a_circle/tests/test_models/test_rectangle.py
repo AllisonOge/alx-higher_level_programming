@@ -9,6 +9,31 @@ from models.base import Base
 from models.rectangle import Rectangle
 
 
+def getprintedoutput(obj, method=None):
+    """Returns the captured output to stdout for a given object
+
+    Args:
+        obj (class) : instance of a class
+        method (str): method to be called
+    """ 
+    # redirect the stdout to StringIO object
+    captured_output = StringIO()
+    sys.stdout = captured_output
+
+    # dynamically call the method on the object if method is not None
+    if method is None:
+        print(obj)
+    else:
+        obj_method = getattr(obj, method)
+        obj_method()
+
+    # get the value printed to stdout
+    actual_output = captured_output.getvalue()
+
+    # reset stdout to its original value
+    sys.stdout = sys.__stdout__
+    return actual_output
+
 class TestRectangle(unittest.TestCase):
     """Test suite for the rectangle class"""
     def setUp(self):
@@ -79,20 +104,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.area(), 3)
 
     def test_display(self):
-        """test that the instance correctly prints the area to stdout"""
-        r1 = Rectangle(6, 2)
-
-        # redirect the stdout to StringIO object
-        captured_output = StringIO()
-        sys.stdout = captured_output
-
-        # call the display method, which prints to stdout
-        r1.display()
-
-        # get the value printed to stdout
-        actual_output = captured_output.getvalue()
-
-        # reset stdout to its original value
-        sys.stdout = sys.__stdout__
-
+        """test that the instance correctly prints the shape to stdout"""
+        r = Rectangle(6, 2)
+        actual_output = getprintedoutput(r, "display")
         self.assertEqual(actual_output, "######\n######\n")
+
+
+    def test_instance_print(self):
+        """test that the instance correctly prints the formatted text"""
+        r1 = Rectangle(2, 1, x=8, id=25)
+        r2 = Rectangle(5, 2)
+        actual_output1 = getprintedoutput(r1)
+        actual_output2 = getprintedoutput(r2)
+        self.assertEqual(actual_output1, "[Rectangle] (25) 8/0 - 2/1\n")
+        self.assertEqual(actual_output2, "[Rectangle] (1) 0/0 - 5/2\n")

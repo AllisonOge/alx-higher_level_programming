@@ -3,7 +3,10 @@
 module to test the base class
 """
 import unittest
+import os
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
@@ -43,3 +46,36 @@ class TestBase(unittest.TestCase):
         self.assertEqual(obj1.id, 1)
         self.assertEqual(obj2.id, 100)
         self.assertEqual(obj3.id, 2)
+
+    def test_to_json_string(self):
+        """test that the Base class serialized a list of dictionaries"""
+        r = Rectangle(3, 1)
+        s = Square(5)
+        self.assertEqual(Base.to_json_string(None), '[]')
+        self.assertEqual(Base.to_json_string([]), '[]')
+        self.assertEqual(Base.to_json_string([r.to_dictionary()]),
+                         '[{"id": 1, "width": 3, "height": 1, "x": 0, "y": 0}]')
+        self.assertEqual(Base.to_json_string([s.to_dictionary()]),
+                         '[{"id": 2, "width": 5, "height": 5, "x": 0, "y": 0, "size": 5}]')
+    
+    def test_save_to_file(self):
+        """test that JSON string is saved to file"""
+        r = Rectangle(3, 1, id=200)
+        s = Square(5)
+        Rectangle.save_to_file([r.to_dictionary()])
+        Square.save_to_file([s.to_dictionary()])
+        # check if file exits 
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        self.assertTrue(os.path.exists("Square.json"))
+        # check content of files
+        with open("Rectangle.json", encoding="utf-8") as f:
+            rectangle_content = f.read()
+            self.assertEqual(rectangle_content, '[{"id": 200, "width": 3, "height": 1, "x": 0, "y": 0}]')
+            
+        with open("Square.json", encoding="utf-8") as f:
+            square_content = f.read()
+            self.assertEqual(square_content, '[{"id": 1, "width": 5, "height": 5, "x": 0, "y": 0, "size": 5}]')
+
+        # remove test files
+        os.remove("Rectangle.json")
+        os.remove("Square.json")

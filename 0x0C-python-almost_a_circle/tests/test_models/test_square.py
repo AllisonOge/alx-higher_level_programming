@@ -116,3 +116,13 @@ class TestSquare(unittest.TestCase):
             s.update(size=0)
         with self.assertRaises(ValueError):
             s.update(x=-3)
+
+    def test_to_dictionary(self):
+        """
+        test that the instance correctly returns the dictionary representation
+        """
+        s = Square(3, 1, 2)
+        self.assertDictEqual(s.to_dictionary(), {'id': 1,
+                                               'width': 3, 'height': 3,
+                                               'size': 3,
+                                               'x': 1, 'y':2})

@@ -66,3 +66,14 @@ class Square(Rectangle):
             return
         for key in kwargs:
             setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the class instance
+        """
+        prefix1 = f"_{self.__class__.__name__}__"
+        prefix2 = f"_{self.__class__.__bases__[0].__name__}__" if self.__class__.__bases__ else ""
+        return {key.replace(prefix1, "")
+                if key.startswith(prefix1) else key.replace(prefix2, "")
+                if key.startswith(prefix2) else key: value
+                for key, value in self.__dict__.items()}

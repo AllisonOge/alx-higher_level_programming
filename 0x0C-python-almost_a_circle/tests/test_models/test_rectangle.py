@@ -3,36 +3,10 @@
 module to test the rectangle class
 """
 import unittest
-from io import StringIO
-import sys
+from test_functions import getprintedoutput
 from models.base import Base
 from models.rectangle import Rectangle
 
-
-def getprintedoutput(obj, method=None):
-    """Returns the captured output to stdout for a given object
-
-    Args:
-        obj (class) : instance of a class
-        method (str): method to be called
-    """ 
-    # redirect the stdout to StringIO object
-    captured_output = StringIO()
-    sys.stdout = captured_output
-
-    # dynamically call the method on the object if method is not None
-    if method is None:
-        print(obj)
-    else:
-        obj_method = getattr(obj, method)
-        obj_method()
-
-    # get the value printed to stdout
-    actual_output = captured_output.getvalue()
-
-    # reset stdout to its original value
-    sys.stdout = sys.__stdout__
-    return actual_output
 
 class TestRectangle(unittest.TestCase):
     """Test suite for the rectangle class"""
@@ -131,6 +105,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 1/0 - 5/2\n")
         r.update(height=3)
         self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 1/0 - 5/3\n")
+        r.update(id=2, x=0)
+        self.assertEqual(getprintedoutput(r), "[Rectangle] (2) 0/0 - 5/3\n")
         with self.assertRaises(TypeError):
             r.update(width=5.0)
         with self.assertRaises(TypeError):

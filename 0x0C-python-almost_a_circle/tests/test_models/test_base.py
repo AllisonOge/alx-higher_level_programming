@@ -79,3 +79,13 @@ class TestBase(unittest.TestCase):
         # remove test files
         os.remove("Rectangle.json")
         os.remove("Square.json")
+
+    def test_from_json_string(self):
+        """test that the Base class deserialized a JSON string"""
+        r = Rectangle(3, 1)
+        s = Square(5)
+        self.assertEqual(Base.from_json_string(None), "")
+        self.assertDictEqual(Base.from_json_string('[{"id": 1, "width": 3, "height": 1, "x": 0, "y": 0}]')[0],
+                         r.to_dictionary())
+        self.assertDictEqual(Base.from_json_string('[{"id": 2, "width": 5, "height": 5, "x": 0, "y": 0, "size": 5}]')[0],
+                         s.to_dictionary())

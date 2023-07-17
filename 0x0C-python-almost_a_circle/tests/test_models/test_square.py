@@ -88,3 +88,31 @@ class TestSquare(unittest.TestCase):
         actual_output2 = getprintedoutput(s2)
         self.assertEqual(actual_output1, "[Square] (25) 8/0 - 2\n")
         self.assertEqual(actual_output2, "[Square] (1) 2/0 - 5\n")
+
+    def test_update(self):
+        """test that the instance correctlly updates its attributes"""
+        s = Square(3, id=2003)
+        s.update()
+        self.assertEqual(getprintedoutput(s), "[Square] (2003) 0/0 - 3\n")
+        s.update(1)
+        self.assertEqual(getprintedoutput(s), "[Square] (1) 0/0 - 3\n")
+        s.update(1, 5, 2, 1)
+        self.assertEqual(getprintedoutput(s), "[Square] (1) 2/1 - 5\n")
+        self.assertEqual(s.width, 5)
+        self.assertEqual(s.height, 5)
+        s.update(size=3)
+        self.assertEqual(getprintedoutput(s), "[Square] (1) 2/1 - 3\n")
+        s.update(id=2, x=0)
+        self.assertEqual(getprintedoutput(s), "[Square] (2) 0/1 - 3\n")
+        with self.assertRaises(TypeError):
+            s.update(width=5.0)
+        with self.assertRaises(TypeError):
+            s.update(size="1")
+        with self.assertRaises(TypeError):
+            s.update(x=[1,])
+        with self.assertRaises(TypeError):
+            s.update(y=(1,))
+        with self.assertRaises(ValueError):
+            s.update(size=0)
+        with self.assertRaises(ValueError):
+            s.update(x=-3)

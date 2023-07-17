@@ -163,3 +163,11 @@ class Rectangle(Base):
             return
         for key in kwargs:
             setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the class instance
+        """
+        prefix = f"_{self.__class__.__name__}__"
+        return {key.replace(prefix, "") if key.startswith(prefix) else key: value
+                for key, value in self.__dict__.items()}

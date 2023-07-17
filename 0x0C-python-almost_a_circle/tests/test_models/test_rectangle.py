@@ -119,3 +119,12 @@ class TestRectangle(unittest.TestCase):
             r.update(width=0)
         with self.assertRaises(ValueError):
             r.update(x=-3)
+
+    def test_to_dictionary(self):
+        """
+        test that the instance correctly returns the dictionary representation
+        """
+        r = Rectangle(3, 1)
+        self.assertDictEqual(r.to_dictionary(), {'id': 1,
+                                               'width': 3, 'height': 1,
+                                               'x': 0, 'y':0})

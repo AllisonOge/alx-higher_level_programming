@@ -140,7 +140,6 @@ class Rectangle(Base):
         s += "{}{}".format(" " * self.x, "#" * self.width)
         print(s)
 
-
     def __str__(self):
         """customize print for instance of class
 
@@ -151,7 +150,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """updates the attributes of a class object
-        
+
         Args:
             args (list): list of any type of values
             kwargs (dict): dictionary of any type of values
@@ -169,5 +168,6 @@ class Rectangle(Base):
         Returns the dictionary representation of the class instance
         """
         prefix = f"_{self.__class__.__name__}__"
-        return {key.replace(prefix, "") if key.startswith(prefix) else key: value
+        return {key.replace(prefix, "")
+                if key.startswith(prefix) else key: value
                 for key, value in self.__dict__.items()}

@@ -25,7 +25,7 @@ class Square(Rectangle):
         """
         return "[Square] ({:d}) {:d}/{:d} - {:d}".format(
                 self.id, self.x, self.y, self.width)
-    
+
     @property
     def size(self):
         """
@@ -34,7 +34,7 @@ class Square(Rectangle):
         Returns: the value of the size property
         """
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         """
@@ -72,7 +72,8 @@ class Square(Rectangle):
         Returns the dictionary representation of the class instance
         """
         prefix1 = f"_{self.__class__.__name__}__"
-        prefix2 = f"_{self.__class__.__bases__[0].__name__}__" if self.__class__.__bases__ else ""
+        prefix2 = f"_{self.__class__.__bases__[0].__name__}__"\
+                  if self.__class__.__bases__ else ""
         return {key.replace(prefix1, "")
                 if key.startswith(prefix1) else key.replace(prefix2, "")
                 if key.startswith(prefix2) else key: value

@@ -57,7 +57,7 @@ class TestBase(unittest.TestCase):
                          '[{"id": 1, "width": 3, "height": 1, "x": 0, "y": 0}]')
         self.assertEqual(Base.to_json_string([s.to_dictionary()]),
                          '[{"id": 2, "width": 5, "height": 5, "x": 0, "y": 0, "size": 5}]')
-    
+
     def test_save_to_file(self):
         """test that JSON string is saved to file"""
         r = Rectangle(3, 1, id=200)
@@ -71,7 +71,7 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", encoding="utf-8") as f:
             rectangle_content = f.read()
             self.assertEqual(rectangle_content, '[{"id": 200, "width": 3, "height": 1, "x": 0, "y": 0}]')
-            
+
         with open("Square.json", encoding="utf-8") as f:
             square_content = f.read()
             self.assertEqual(square_content, '[{"id": 1, "width": 5, "height": 5, "x": 0, "y": 0, "size": 5}]')
@@ -89,7 +89,7 @@ class TestBase(unittest.TestCase):
                          r.to_dictionary())
         self.assertDictEqual(Base.from_json_string('[{"id": 2, "width": 5, "height": 5, "x": 0, "y": 0, "size": 5}]')[0],
                          s.to_dictionary())
-        
+
     def test_load_from_file(self):
         """test that JSON string is parsed to dictionary"""
         r1 = Rectangle(3, 1, id=200)

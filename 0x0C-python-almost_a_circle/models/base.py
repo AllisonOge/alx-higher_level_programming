@@ -41,8 +41,9 @@ class Base:
         """
 
         with open(f"{cls.__name__}.json", "w", encoding="utf-8") as f:
-            f.write(Base.to_json_string([obj.to_dictionary() for obj in list_objs]))
-    
+            f.write(Base.to_json_string(
+                [obj.to_dictionary() for obj in list_objs]))
+
     @staticmethod
     def from_json_string(json_string):
         """
@@ -68,7 +69,7 @@ class Base:
             instance = cls(1)
         instance.update(**dictionary)
         return instance
-        
+
     @classmethod
     def load_from_file(cls):
         """
@@ -79,7 +80,7 @@ class Base:
             with open(f"{cls.__name__}.json", encoding="utf-8") as f:
                 line = f.read()
                 list_dict = Base.from_json_string(line)
-                
+
                 # create instances
                 for d in list_dict:
                     list_instances.append(cls.create(**d))
@@ -116,8 +117,8 @@ class Base:
                 reader = csv.DictReader(f)
 
                 for row in reader:
-                    list_instances.append(cls.create(
-                                                  **{key: int(value) for key, value in row.items()}))
+                    obj = {key: int(value) for key, value in row.items()}
+                    list_instances.append(cls.create(**obj))
 
         except FileNotFoundError:
             pass

@@ -121,3 +121,55 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Rectangle.load_from_file(), [])
         self.assertEqual(Square.load_from_file(), [])
 
+    def test_save_to_file_csv(self):
+        """test that CSV string is saved to file"""
+        r = Rectangle(3, 1, id=200)
+        s = Square(5)
+        Rectangle.save_to_file_csv([r])
+        Square.save_to_file_csv([s])
+        # check if file exits 
+        self.assertTrue(os.path.exists("Rectangle.csv"))
+        self.assertTrue(os.path.exists("Square.csv"))
+        # check content of files
+        with open("Rectangle.csv", encoding="utf-8") as f:
+            rectangle_content = f.read()
+            self.assertEqual(rectangle_content, 'id,width,height,x,y\n200,3,1,0,0\n')
+            
+        with open("Square.csv", encoding="utf-8") as f:
+            square_content = f.read()
+            self.assertEqual(square_content, 'id,width,height,x,y,size\n1,5,5,0,0,5\n')
+
+        # remove test files
+        os.remove("Rectangle.csv")
+        os.remove("Square.csv")
+
+    def test_load_from_file_csv(self):
+        """test that CSV string is parsed to dictionary"""
+        r1 = Rectangle(3, 1, id=200)
+        s1 = Square(5)
+        Rectangle.save_to_file_csv([r1])
+        Square.save_to_file_csv([s1])
+        r2 = Rectangle.load_from_file_csv()
+        s2 = Square.load_from_file_csv()
+        
+        # check if list is not empty
+        self.assertNotEqual(r2, [])
+        self.assertNotEqual(s2, [])
+
+        # check instances
+        self.assertIsInstance(r2[0], Rectangle)
+        self.assertIsInstance(s2[0], Square)
+
+        # compare instances
+        self.assertIsNot(r1, r2[0])
+        self.assertNotEqual(r1, r2[0])
+        self.assertIsNot(s1, s2[0])
+        self.assertNotEqual(s1, s2[0])
+
+        # remove test files
+        os.remove("Rectangle.csv")
+        os.remove("Square.csv")
+
+        # check whe file does not exist
+        self.assertEqual(Rectangle.load_from_file(), [])
+        self.assertEqual(Square.load_from_file(), [])

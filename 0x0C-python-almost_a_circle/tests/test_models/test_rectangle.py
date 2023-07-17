@@ -3,6 +3,8 @@
 module to test the rectangle class
 """
 import unittest
+from io import StringIO
+import sys
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -75,3 +77,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.area(), 14)
         self.assertEqual(r2.area(), 15)
         self.assertEqual(r3.area(), 3)
+
+    def test_display(self):
+        """test that the instance correctly prints the area to stdout"""
+        r1 = Rectangle(6, 2)
+
+        # redirect the stdout to StringIO object
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        # call the display method, which prints to stdout
+        r1.display()
+
+        # get the value printed to stdout
+        actual_output = captured_output.getvalue()
+
+        # reset stdout to its original value
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(actual_output, "######\n######\n")

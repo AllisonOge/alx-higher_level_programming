@@ -128,3 +128,12 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def display(self):
+        """print the class object with the character #
+        """
+        s = ""
+        for _ in range(self.height - 1):
+            s += "{}\n".format("#" * self.width)
+        s += "{}".format("#" * self.width)
+        print(s)

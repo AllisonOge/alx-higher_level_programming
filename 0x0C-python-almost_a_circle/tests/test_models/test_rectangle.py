@@ -105,9 +105,10 @@ class TestRectangle(unittest.TestCase):
 
     def test_display(self):
         """test that the instance correctly prints the shape to stdout"""
-        r = Rectangle(6, 2)
-        actual_output = getprintedoutput(r, "display")
-        self.assertEqual(actual_output, "######\n######\n")
+        r1 = Rectangle(6, 2)
+        r2 = Rectangle(2, 1, 3, 3)
+        self.assertEqual(getprintedoutput(r1, "display"), "######\n######\n")
+        self.assertEqual(getprintedoutput(r2, "display"), "\n\n\n   ##\n")
 
 
     def test_instance_print(self):

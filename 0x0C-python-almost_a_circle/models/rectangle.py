@@ -133,9 +133,11 @@ class Rectangle(Base):
         """print the class object with the character #
         """
         s = ""
+        for _ in range(self.y):
+            s += "\n"
         for _ in range(self.height - 1):
-            s += "{}\n".format("#" * self.width)
-        s += "{}".format("#" * self.width)
+            s += "{}{}\n".format(" " * self.x, "#" * self.width)
+        s += "{}{}".format(" " * self.x, "#" * self.width)
         print(s)
 
 

@@ -127,5 +127,19 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(getprintedoutput(r), "[Rectangle] (2003) 0/0 - 3/1\n")
         r.update(1)
         self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 0/0 - 3/1\n")
-        r.update(1, 3, 1, 1)
-        self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 1/0 - 3/1\n")
+        r.update(1, 5, 2, 1)
+        self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 1/0 - 5/2\n")
+        r.update(height=3)
+        self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 1/0 - 5/3\n")
+        with self.assertRaises(TypeError):
+            r.update(width=5.0)
+        with self.assertRaises(TypeError):
+            r.update(height="1")
+        with self.assertRaises(TypeError):
+            r.update(x=[1,])
+        with self.assertRaises(TypeError):
+            r.update(y=(1,))
+        with self.assertRaises(ValueError):
+            r.update(width=0)
+        with self.assertRaises(ValueError):
+            r.update(x=-3)

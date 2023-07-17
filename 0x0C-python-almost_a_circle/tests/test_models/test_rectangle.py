@@ -119,3 +119,13 @@ class TestRectangle(unittest.TestCase):
         actual_output2 = getprintedoutput(r2)
         self.assertEqual(actual_output1, "[Rectangle] (25) 8/0 - 2/1\n")
         self.assertEqual(actual_output2, "[Rectangle] (1) 0/0 - 5/2\n")
+
+    def test_update(self):
+        """test that the instance correctlly updates its attributes"""
+        r = Rectangle(3, 1, id=2003)
+        r.update()
+        self.assertEqual(getprintedoutput(r), "[Rectangle] (2003) 0/0 - 3/1\n")
+        r.update(1)
+        self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 0/0 - 3/1\n")
+        r.update(1, 3, 1, 1)
+        self.assertEqual(getprintedoutput(r), "[Rectangle] (1) 1/0 - 3/1\n")

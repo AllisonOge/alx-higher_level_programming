@@ -128,3 +128,10 @@ class TestRectangle(unittest.TestCase):
         self.assertDictEqual(r.to_dictionary(), {'id': 1,
                                                'width': 3, 'height': 1,
                                                'x': 0, 'y':0})
+
+    def test_base_class_create(self):
+        """test the Base class method create"""
+        r1 = Rectangle(7, 2)
+        r2 = Rectangle.create(**r1.to_dictionary())
+        self.assertIsNot(r1, r2)
+        self.assertNotEqual(r1, r2)

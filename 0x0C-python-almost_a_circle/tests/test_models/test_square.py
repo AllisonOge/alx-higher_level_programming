@@ -126,3 +126,11 @@ class TestSquare(unittest.TestCase):
                                                'width': 3, 'height': 3,
                                                'size': 3,
                                                'x': 1, 'y':2})
+        
+    def test_base_class_create(self):
+        """test the Base class method create"""
+        s1 = Square(2, id=12)
+        s2 = Square.create(**s1.to_dictionary())
+        self.assertIsNot(s1, s2)
+        self.assertNotEqual(s1, s2)
+    

@@ -89,3 +89,35 @@ class TestBase(unittest.TestCase):
                          r.to_dictionary())
         self.assertDictEqual(Base.from_json_string('[{"id": 2, "width": 5, "height": 5, "x": 0, "y": 0, "size": 5}]')[0],
                          s.to_dictionary())
+        
+    def test_load_from_file(self):
+        """test that JSON string is parsed to dictionary"""
+        r1 = Rectangle(3, 1, id=200)
+        s1 = Square(5)
+        Rectangle.save_to_file([r1])
+        Square.save_to_file([s1])
+        r2 = Rectangle.load_from_file()
+        s2 = Square.load_from_file()
+        
+        # check if list is not empty
+        self.assertNotEqual(r2, [])
+        self.assertNotEqual(s2, [])
+
+        # check instances
+        self.assertIsInstance(r2[0], Rectangle)
+        self.assertIsInstance(s2[0], Square)
+
+        # compare instances
+        self.assertIsNot(r1, r2[0])
+        self.assertNotEqual(r1, r2[0])
+        self.assertIsNot(s1, s2[0])
+        self.assertNotEqual(s1, s2[0])
+
+        # remove test files
+        os.remove("Rectangle.json")
+        os.remove("Square.json")
+
+        # check whe file does not exist
+        self.assertEqual(Rectangle.load_from_file(), [])
+        self.assertEqual(Square.load_from_file(), [])
+

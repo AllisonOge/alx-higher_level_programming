@@ -62,8 +62,8 @@ class TestBase(unittest.TestCase):
         """test that JSON string is saved to file"""
         r = Rectangle(3, 1, id=200)
         s = Square(5)
-        Rectangle.save_to_file([r.to_dictionary()])
-        Square.save_to_file([s.to_dictionary()])
+        Rectangle.save_to_file([r])
+        Square.save_to_file([s])
         # check if file exits 
         self.assertTrue(os.path.exists("Rectangle.json"))
         self.assertTrue(os.path.exists("Square.json"))

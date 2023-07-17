@@ -40,7 +40,7 @@ class Base:
         """
 
         with open(f"{cls.__name__}.json", "w", encoding="utf-8") as f:
-            f.write(Base.to_json_string(list_objs))
+            f.write(Base.to_json_string([obj.to_dictionary() for obj in list_objs]))
     
     @staticmethod
     def from_json_string(json_string):

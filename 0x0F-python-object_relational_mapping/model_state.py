@@ -7,6 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class State(Base):
     """ORM for states relational table"""
     __tablename__ = "states"

@@ -16,8 +16,9 @@ if __name__ == "__main__":
                            user=user, passwd=passwd,
                            db=db_name, charset="utf8")
     cur = conn.cursor()
-    cur.execute("""SELECT * from states WHERE name=%s
-                   ORDER BY id ASC""", (st_name,))
+    cur.execute("""SELECT * from states
+                   WHERE name='{}'
+                   ORDER BY id ASC""".format(st_name))
     query_row = cur.fetchone()
     print(query_row)
 

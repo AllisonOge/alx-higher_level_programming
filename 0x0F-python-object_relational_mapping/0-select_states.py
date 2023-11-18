@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+module for querying database using MySQLdb
+"""
 import sys
 import MySQLdb
 

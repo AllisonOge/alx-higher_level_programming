@@ -16,7 +16,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     session = Session(engine)
     query_result = session.query(State)\
-                          .filter_by(name = sys.argv[4])\
+                          .filter_by(name=sys.argv[4])\
                           .order_by(State.id).first()
     if not query_result:
         print("Not found")

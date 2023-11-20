@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # 3. commit the changes to the database
     state2update = session.query(State).filter_by(id=2).first()
 
-    if state2update: # check if record exists
+    if state2update:  # check if record exists
         state2update.name = "New Mexico"
 
         session.commit()

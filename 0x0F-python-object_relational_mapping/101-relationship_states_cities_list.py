@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module for join statements using SQLAlchemy
+module for related objects using SQLAlchemy
 """
 import sys
 from model_state import Base, State

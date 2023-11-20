@@ -17,4 +17,4 @@ class City(Base):
 
     state = relationship("State", back_populates="cities")  # one-to-many
 
-State.cities = relationship("City", backpopulates="state")  # many-to-one
+State.cities = relationship("City", back_populates="state")  # many-to-one

@@ -2,7 +2,7 @@
 """
 module for City model definition
 """
-from model_state import Base
+from model_state import Base, State
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
@@ -16,3 +16,5 @@ class City(Base):
     state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
 
     state = relationship("State", back_populates="cities")  # one-to-many
+
+State.cities = relationship("City", backpopulates="state")  # many-to-one

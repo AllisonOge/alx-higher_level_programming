@@ -4,6 +4,7 @@ module for related objects using SQLAlchemy
 """
 import sys
 from model_state import Base, State
+from model_city import City
 from sqlalchemy.orm import Session
 
 from sqlalchemy import create_engine
@@ -18,5 +19,5 @@ if __name__ == "__main__":
     for state in session.query(State).order_by(State.id).all():
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+            print("    {}: {}".format(city.id, city.name))
     session.close()

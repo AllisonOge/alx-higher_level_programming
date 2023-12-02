@@ -9,7 +9,7 @@ import requests
 
 if __name__ == "__main__":
     letter = sys.argv[1] if len(sys.argv) > 1 else ""
-    res = requests.post("http://0.0.0.0:5000/search_user", { "q": letter})
+    res = requests.post("http://0.0.0.0:5000/search_user", {"q": letter})
     try:
         res_data = res.json()
         if len(res_data) == 0:

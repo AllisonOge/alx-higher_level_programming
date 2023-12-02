@@ -2,6 +2,7 @@
 """
 Reads 10 github commits from user rails using the GitHub API
 """
+import sys
 import requests
 
 
